@@ -1,0 +1,19 @@
+<form ng-Submit="post()">
+    <textarea placeholder="What's up?" class="form-control " ng-model="newPost.text"></textarea>
+    <input class="btn submit-btn pull-right" type="submit" value="Socialize!"/>
+</form>
+<div id="post-Stream">
+    <h3>What your friends say! </h3>
+
+    <!--timeline des posts-->
+    <div class="post" ng-repeat="post in posts | orderBy:'created_at':true">
+        <div class="row co">
+            <p class=>{{post.text}}</p>
+            <a ng-click="delete(post)" class="pull-right">✘</a>
+        </div>
+        <small>Posted by {{post.created_by}}</small>
+        <small class="pull-right">{{post.created_at | date:"h:mma 'on' MMM d, y"}}</small>
+
+
+    </div>
+</div>
