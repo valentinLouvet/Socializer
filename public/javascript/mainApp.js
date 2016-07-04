@@ -36,22 +36,35 @@ app.controller('mainController', function ($scope, postService, $rootScope) {
     });
 
     $scope.post = function () {
-        $scope.newPost.created_at = Date.now();
-        $scope.newPost.created_by = $rootScope.current_user;
-        postService.create($scope.newPost).success(function (data) {
-            $scope.posts.push(data);
 
-        });
-        console.log("posted at : " + Date.now());
-        $scope.newPost = {created_by: '', text: '', created_at: ''};
+        if ($rootScope.authenticated) {
+            $scope.newPost.created_at = Date.now();
+            $scope.newPost.created_by = $rootScope.current_user;
+            postService.create($scope.newPost).success(function (data) {
+                $scope.posts.push(data);
+
+            });
+            console.log("posted at : " + Date.now());
+            $scope.newPost = {created_by: '', text: '', created_at: ''};
+        }
+        else{
+            alert("you need to be authenticated to post");
+        }
+
 
     };
     $scope.delete = function (post) {
-        postService.delete(post).success(function () {
-            postService.getAll().success(function (data) {
-                $scope.posts = data;
-            });
-        })
+        if($rootScope.current_user == post.created_by){
+            postService.delete(post).success(function () {
+                postService.getAll().success(function (data) {
+                    $scope.posts = data;
+                });
+            })
+        }
+        else{
+            alert("you can only delete your own post");
+        }
+
     };
 
 
