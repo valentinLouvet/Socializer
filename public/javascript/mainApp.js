@@ -1,9 +1,9 @@
-var app = angular.module('mainApp', ['ngRoute', 'ngCookies']).run(function($cookies, $rootScope) {
+var app = angular.module('mainApp', ['ngRoute', 'ngCookies']).run(function ($cookies, $rootScope) {
 
     $rootScope.authenticated = $cookies.get('authenticated');
     $rootScope.current_user = $cookies.get('current_user');
 
-    $rootScope.signout = function(){
+    $rootScope.signout = function () {
         $rootScope.authenticated = false;
         $cookies.put('authenticated', '');
         $rootScope.current_user = '';
@@ -26,9 +26,12 @@ app.config(function ($routeProvider) {
         .when("/login", {
             templateUrl: 'login.html',
             controller: 'authController'
+        })
+        .when("/search", {
+            templateUrl: 'userSearch.html'
         });
-
 });
+
 
 app.controller('mainController', function ($scope, postService, $rootScope, $cookies) {
     $scope.posts = [];
@@ -50,21 +53,21 @@ app.controller('mainController', function ($scope, postService, $rootScope, $coo
             console.log("posted at : " + Date.now());
             $scope.newPost = {created_by: '', text: '', created_at: ''};
         }
-        else{
+        else {
             alert("you need to be authenticated to post");
         }
 
 
     };
     $scope.delete = function (post) {
-        if($cookies.get('current_user')== post.created_by){
+        if ($cookies.get('current_user') == post.created_by) {
             postService.delete(post).success(function () {
                 postService.getAll().success(function (data) {
                     $scope.posts = data;
                 });
             })
         }
-        else{
+        else {
             alert("you can only delete your own post");
         }
 
@@ -90,33 +93,33 @@ app.factory('postService', function ($http) {
 
 
 });
-app.factory('userService', function($http){
+app.factory('userService', function ($http) {
     var factory = {};
-    factory.create = function(user) {
+    factory.create = function (user) {
         return $http.post("/auth/users", user);
     };
-    factory.getUser = function(user) {
+    factory.getUser = function (user) {
         return $http.get("/auth/users/" + user.username);
     };
     return factory;
 });
 
-app.controller('authController', function ($scope,userService,$rootScope,$location,$cookies) {
+app.controller('authController', function ($scope, userService, $rootScope, $location, $cookies) {
     $scope.user = {username: '', password: ''};
     $scope.login = function () {
-        userService.getUser($scope.user).success(function(data){
-           if(data && data.password == $scope.user.password) {
+        userService.getUser($scope.user).success(function (data) {
+            if (data && data.password == $scope.user.password) {
 
-               $rootScope.authenticated = true;
-               $cookies.put('authenticated', true);
-               $rootScope.current_user = data.username;
-               $cookies.put('current_user', data.username);
-               console.log('signed in');
-               $location.path('/');
-           }
-            else{
-               $scope.error_message = "invalid username or password"
-           }
+                $rootScope.authenticated = true;
+                $cookies.put('authenticated', true);
+                $rootScope.current_user = data.username;
+                $cookies.put('current_user', data.username);
+                console.log('signed in');
+                $location.path('/');
+            }
+            else {
+                $scope.error_message = "invalid username or password"
+            }
 
 
         });
@@ -124,18 +127,18 @@ app.controller('authController', function ($scope,userService,$rootScope,$locati
     };
 
     $scope.register = function () {
-        userService.getUser($scope.user).success(function(data){
-            if(!data){
-                userService.create($scope.user).success(function(data){
+        userService.getUser($scope.user).success(function (data) {
+            if (!data) {
+                userService.create($scope.user).success(function (data) {
                     $rootScope.authenticated = true;
-                    $cookies.put('authenticated' , true);
+                    $cookies.put('authenticated', true);
                     $rootScope.current_user = data.username;
                     $cookies.put('current_user', data.username);
                     console.log('registration successgul');
                     $location.path('/');
                 });
             }
-            else{
+            else {
                 $scope.error_message = "username already exist"
             }
         });
