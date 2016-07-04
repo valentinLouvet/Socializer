@@ -1,11 +1,11 @@
 var app = angular.module('mainApp', ['ngRoute', 'ngCookies']).run(function($cookies, $rootScope) {
-    
+
     $rootScope.authenticated = $cookies.get('authenticated');
     $rootScope.current_user = $cookies.get('current_user');
 
     $rootScope.signout = function(){
         $rootScope.authenticated = false;
-        $cookies.put('authenticated', false);
+        $cookies.put('authenticated', '');
         $rootScope.current_user = '';
         $cookies.put('current_user', '');
     };
@@ -30,7 +30,7 @@ app.config(function ($routeProvider) {
 
 });
 
-app.controller('mainController', function ($scope, postService, $rootScope) {
+app.controller('mainController', function ($scope, postService, $rootScope, $cookies) {
     $scope.posts = [];
     $scope.newPost = {created_by: '', text: '', created_at: ''};
     postService.getAll().success(function (data) {
@@ -40,7 +40,7 @@ app.controller('mainController', function ($scope, postService, $rootScope) {
 
     $scope.post = function () {
 
-        if ($rootScope.authenticated) {
+        if ($cookies.get('authenticated')) {
             $scope.newPost.created_at = Date.now();
             $scope.newPost.created_by = $rootScope.current_user;
             postService.create($scope.newPost).success(function (data) {
@@ -57,7 +57,7 @@ app.controller('mainController', function ($scope, postService, $rootScope) {
 
     };
     $scope.delete = function (post) {
-        if($rootScope.current_user == post.created_by){
+        if($cookies.get('current_user')== post.created_by){
             postService.delete(post).success(function () {
                 postService.getAll().success(function (data) {
                     $scope.posts = data;
