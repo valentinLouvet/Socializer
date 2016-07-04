@@ -114,6 +114,9 @@ app.controller('authController', function ($scope,userService,$rootScope,$locati
                console.log('signed in');
                $location.path('/');
            }
+            else{
+               $scope.error_message = "invalid username or password"
+           }
 
 
         });
@@ -132,7 +135,11 @@ app.controller('authController', function ($scope,userService,$rootScope,$locati
                     $location.path('/');
                 });
             }
+            else{
+                $scope.error_message = "username already exist"
+            }
         });
+
 
     };
 
