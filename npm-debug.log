@@ -1,40 +1,111 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'start' ]
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'angular-cookies@X.Y.Z' ]
 2 info using npm@2.15.5
 3 info using node@v4.4.6
-4 verbose run-script [ 'prestart', 'start', 'poststart' ]
-5 info prestart Socializer@0.0.0
-6 info start Socializer@0.0.0
-7 verbose unsafe-perm in lifecycle true
-8 info Socializer@0.0.0 Failed to exec start script
-9 verbose stack Error: Socializer@0.0.0 start: `node ./bin/www`
-9 verbose stack Exit status 1
-9 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:217:16)
-9 verbose stack     at emitTwo (events.js:87:13)
-9 verbose stack     at EventEmitter.emit (events.js:172:7)
-9 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/spawn.js:24:14)
-9 verbose stack     at emitTwo (events.js:87:13)
-9 verbose stack     at ChildProcess.emit (events.js:172:7)
-9 verbose stack     at maybeClose (internal/child_process.js:827:16)
-9 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
-10 verbose pkgid Socializer@0.0.0
-11 verbose cwd /Users/valentinlouvet/Documents/Socializer
-12 error Darwin 14.5.0
-13 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "start"
-14 error node v4.4.6
-15 error npm  v2.15.5
-16 error code ELIFECYCLE
-17 error Socializer@0.0.0 start: `node ./bin/www`
-17 error Exit status 1
-18 error Failed at the Socializer@0.0.0 start script 'node ./bin/www'.
-18 error This is most likely a problem with the Socializer package,
-18 error not with npm itself.
-18 error Tell the author that this fails on your system:
-18 error     node ./bin/www
-18 error You can get information on how to open an issue for this project with:
-18 error     npm bugs Socializer
-18 error Or if that isn't available, you can get their info via:
-18 error
-18 error     npm owner ls Socializer
-18 error There is likely additional logging output above.
-19 verbose exit [ 1, true ]
+4 verbose install initial load of /Users/valentinlouvet/Documents/Socializer/package.json
+5 verbose installManyTop reading scoped package data from /Users/valentinlouvet/Documents/Socializer/node_modules/body-parser/package.json
+6 verbose installManyTop reading scoped package data from /Users/valentinlouvet/Documents/Socializer/node_modules/cookie-parser/package.json
+7 verbose installManyTop reading scoped package data from /Users/valentinlouvet/Documents/Socializer/node_modules/debug/package.json
+8 verbose installManyTop reading scoped package data from /Users/valentinlouvet/Documents/Socializer/node_modules/ejs/package.json
+9 verbose installManyTop reading scoped package data from /Users/valentinlouvet/Documents/Socializer/node_modules/express/package.json
+10 verbose installManyTop reading scoped package data from /Users/valentinlouvet/Documents/Socializer/node_modules/mongoose/package.json
+11 verbose installManyTop reading scoped package data from /Users/valentinlouvet/Documents/Socializer/node_modules/morgan/package.json
+12 verbose installManyTop reading scoped package data from /Users/valentinlouvet/Documents/Socializer/node_modules/serve-favicon/package.json
+13 verbose readDependencies loading dependencies from /Users/valentinlouvet/Documents/Socializer/package.json
+14 silly cache add args [ 'angular-cookies@X.Y.Z', null ]
+15 verbose cache add spec angular-cookies@X.Y.Z
+16 silly cache add parsed spec Result {
+16 silly cache add   raw: 'angular-cookies@X.Y.Z',
+16 silly cache add   scope: null,
+16 silly cache add   name: 'angular-cookies',
+16 silly cache add   rawSpec: 'X.Y.Z',
+16 silly cache add   spec: 'X.Y.Z',
+16 silly cache add   type: 'tag' }
+17 silly addNamed angular-cookies@X.Y.Z
+18 verbose addNamed "X.Y.Z" is being treated as a dist-tag for angular-cookies
+19 info addNameTag [ 'angular-cookies', 'X.Y.Z' ]
+20 silly mapToRegistry name angular-cookies
+21 silly mapToRegistry using default registry
+22 silly mapToRegistry registry https://registry.npmjs.org/
+23 silly mapToRegistry data Result {
+23 silly mapToRegistry   raw: 'angular-cookies',
+23 silly mapToRegistry   scope: null,
+23 silly mapToRegistry   name: 'angular-cookies',
+23 silly mapToRegistry   rawSpec: '',
+23 silly mapToRegistry   spec: 'latest',
+23 silly mapToRegistry   type: 'tag' }
+24 silly mapToRegistry uri https://registry.npmjs.org/angular-cookies
+25 verbose addNameTag registry:https://registry.npmjs.org/angular-cookies not in flight; fetching
+26 verbose request uri https://registry.npmjs.org/angular-cookies
+27 verbose request no auth needed
+28 info attempt registry request try #1 at 10:27:32
+29 verbose request id 844dbcc680ed7f84
+30 http request GET https://registry.npmjs.org/angular-cookies
+31 http 200 https://registry.npmjs.org/angular-cookies
+32 verbose headers { server: 'CouchDB/1.6.1 (Erlang OTP/R16B03)',
+32 verbose headers   etag: '"WAS2WN7MRGNIKBK7FKE1BP8K"',
+32 verbose headers   'content-type': 'application/json',
+32 verbose headers   'content-encoding': 'gzip',
+32 verbose headers   'cache-control': 'max-age=300',
+32 verbose headers   'content-length': '11920',
+32 verbose headers   'accept-ranges': 'bytes',
+32 verbose headers   date: 'Mon, 04 Jul 2016 08:27:33 GMT',
+32 verbose headers   via: '1.1 varnish',
+32 verbose headers   age: '35',
+32 verbose headers   connection: 'keep-alive',
+32 verbose headers   'x-served-by': 'cache-lhr6341-LHR',
+32 verbose headers   'x-cache': 'HIT',
+32 verbose headers   'x-cache-hits': '1',
+32 verbose headers   'x-timer': 'S1467620853.192503,VS0,VE0',
+32 verbose headers   vary: 'Accept-Encoding' }
+33 silly get cb [ 200,
+33 silly get   { server: 'CouchDB/1.6.1 (Erlang OTP/R16B03)',
+33 silly get     etag: '"WAS2WN7MRGNIKBK7FKE1BP8K"',
+33 silly get     'content-type': 'application/json',
+33 silly get     'content-encoding': 'gzip',
+33 silly get     'cache-control': 'max-age=300',
+33 silly get     'content-length': '11920',
+33 silly get     'accept-ranges': 'bytes',
+33 silly get     date: 'Mon, 04 Jul 2016 08:27:33 GMT',
+33 silly get     via: '1.1 varnish',
+33 silly get     age: '35',
+33 silly get     connection: 'keep-alive',
+33 silly get     'x-served-by': 'cache-lhr6341-LHR',
+33 silly get     'x-cache': 'HIT',
+33 silly get     'x-cache-hits': '1',
+33 silly get     'x-timer': 'S1467620853.192503,VS0,VE0',
+33 silly get     vary: 'Accept-Encoding' } ]
+34 verbose get saving angular-cookies to /Users/valentinlouvet/.npm/registry.npmjs.org/angular-cookies/.cache.json
+35 verbose correctMkdir /Users/valentinlouvet/.npm correctMkdir not in flight; initializing
+36 silly addNameTag next cb for angular-cookies with tag X.Y.Z
+37 verbose stack Error: No compatible version found: angular-cookies@'X.Y.Z'
+37 verbose stack Valid install targets:
+37 verbose stack ["1.2.20","1.2.0","1.2.1","1.2.2","1.2.3","1.2.4","1.2.5","1.2.6","1.2.7","1.2.8","1.2.9","1.2.10","1.2.11","1.2.12","1.2.13","1.2.14","1.2.15","1.2.16","1.2.17","1.2.18","1.2.19","1.3.0-rc.5","1.3.0","1.3.1","1.3.2","1.3.3","1.3.4-build.3588","1.2.27","1.3.4","1.3.5","1.3.6","1.3.7","1.2.28","1.3.8","1.4.0-beta.0","1.3.9","1.3.10","1.4.0-beta.1","1.4.0-beta.2","1.3.11","1.4.0-beta.3","1.3.12","1.3.13","1.4.0-beta.4","1.3.14","1.4.0-beta.5","1.4.0-beta.6","1.3.15","1.4.0-rc.0","1.4.0-rc.1","1.4.0-rc.2","1.4.0","1.3.16","1.4.1","1.4.2","1.3.17","1.4.3","1.4.4","1.3.18","1.4.5","1.3.19","1.4.6","1.5.0-beta.0","1.2.29","1.3.20","1.4.7","1.5.0-beta.2","1.4.8","1.5.0-rc.0","1.5.0-rc.1","1.4.9","1.5.0-rc.2","1.5.0","1.5.1","1.4.10","1.5.2","1.5.3","1.5.5","1.4.11","1.5.6","1.4.12","1.5.7"]
+37 verbose stack
+37 verbose stack     at installTargetsError (/usr/local/lib/node_modules/npm/lib/cache/add-named.js:284:12)
+37 verbose stack     at next (/usr/local/lib/node_modules/npm/lib/cache/add-named.js:94:10)
+37 verbose stack     at RES (/usr/local/lib/node_modules/npm/node_modules/inflight/inflight.js:23:14)
+37 verbose stack     at f (/usr/local/lib/node_modules/npm/node_modules/once/once.js:17:25)
+37 verbose stack     at fixName (/usr/local/lib/node_modules/npm/lib/cache/add-named.js:29:5)
+37 verbose stack     at saved (/usr/local/lib/node_modules/npm/lib/cache/caching-client.js:173:7)
+37 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/graceful-fs/polyfills.js:210:7
+37 verbose stack     at FSReqWrap.oncomplete (fs.js:82:15)
+38 verbose cwd /Users/valentinlouvet/Documents/Socializer
+39 error Darwin 14.5.0
+40 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "angular-cookies@X.Y.Z"
+41 error node v4.4.6
+42 error npm  v2.15.5
+43 error code ETARGET
+44 error notarget No compatible version found: angular-cookies@'X.Y.Z'
+44 error notarget Valid install targets:
+44 error notarget ["1.2.20","1.2.0","1.2.1","1.2.2","1.2.3","1.2.4","1.2.5","1.2.6","1.2.7","1.2.8","1.2.9","1.2.10","1.2.11","1.2.12","1.2.13","1.2.14","1.2.15","1.2.16","1.2.17","1.2.18","1.2.19","1.3.0-rc.5","1.3.0","1.3.1","1.3.2","1.3.3","1.3.4-build.3588","1.2.27","1.3.4","1.3.5","1.3.6","1.3.7","1.2.28","1.3.8","1.4.0-beta.0","1.3.9","1.3.10","1.4.0-beta.1","1.4.0-beta.2","1.3.11","1.4.0-beta.3","1.3.12","1.3.13","1.4.0-beta.4","1.3.14","1.4.0-beta.5","1.4.0-beta.6","1.3.15","1.4.0-rc.0","1.4.0-rc.1","1.4.0-rc.2","1.4.0","1.3.16","1.4.1","1.4.2","1.3.17","1.4.3","1.4.4","1.3.18","1.4.5","1.3.19","1.4.6","1.5.0-beta.0","1.2.29","1.3.20","1.4.7","1.5.0-beta.2","1.4.8","1.5.0-rc.0","1.5.0-rc.1","1.4.9","1.5.0-rc.2","1.5.0","1.5.1","1.4.10","1.5.2","1.5.3","1.5.5","1.4.11","1.5.6","1.4.12","1.5.7"]
+44 error notarget
+44 error notarget This is most likely not a problem with npm itself.
+44 error notarget In most cases you or one of your dependencies are requesting
+44 error notarget a package version that doesn't exist.
+44 error notarget
+44 error notarget It was specified as a dependency of 'Socializer'
+45 verbose exit [ 1, true ]

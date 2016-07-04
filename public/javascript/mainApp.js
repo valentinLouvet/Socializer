@@ -1,10 +1,13 @@
-var app = angular.module('mainApp', ['ngRoute']).run(function($rootScope) {
-    $rootScope.authenticated = false;
-    $rootScope.current_user = '';
+var app = angular.module('mainApp', ['ngRoute', 'ngCookies']).run(function($cookies, $rootScope) {
+    
+    $rootScope.authenticated = $cookies.get('authenticated');
+    $rootScope.current_user = $cookies.get('current_user');
 
     $rootScope.signout = function(){
         $rootScope.authenticated = false;
+        $cookies.put('authenticated', false);
         $rootScope.current_user = '';
+        $cookies.put('current_user', '');
     };
 
 });
@@ -98,13 +101,16 @@ app.factory('userService', function($http){
     return factory;
 });
 
-app.controller('authController', function ($scope,userService,$rootScope,$location) {
+app.controller('authController', function ($scope,userService,$rootScope,$location,$cookies) {
     $scope.user = {username: '', password: ''};
     $scope.login = function () {
         userService.getUser($scope.user).success(function(data){
            if(data && data.password == $scope.user.password) {
+
                $rootScope.authenticated = true;
+               $cookies.put('authenticated', true);
                $rootScope.current_user = data.username;
+               $cookies.put('current_user', data.username);
                console.log('signed in');
                $location.path('/');
            }
@@ -119,7 +125,9 @@ app.controller('authController', function ($scope,userService,$rootScope,$locati
             if(!data){
                 userService.create($scope.user).success(function(data){
                     $rootScope.authenticated = true;
+                    $cookies.put('authenticated' , true);
                     $rootScope.current_user = data.username;
+                    $cookies.put('current_user', data.username);
                     console.log('registration successgul');
                     $location.path('/');
                 });
