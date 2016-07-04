@@ -40,8 +40,7 @@ app.controller('mainController', function ($scope, postService, $rootScope, $coo
 
 
 });
-angular.module('mainApp')
-    .factory('postService', function ($http) {
+app.factory('postService', function ($http) {
         var baseUrl = "/api/posts";
         var factory = {};
         factory.getAll = function () {
