@@ -28,7 +28,8 @@ app.config(function ($routeProvider) {
             controller: 'authController'
         })
         .when("/search", {
-            templateUrl: 'userSearch.html'
+            templateUrl: 'userSearch.html',
+            controller: 'searchController'
         });
 });
 

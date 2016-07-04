@@ -1,11 +1,12 @@
-<form ng-Submit="">
-    <textarea placeholder="search for your friends" class="form-control " ></textarea>
+<form ng-Submit="searching()">
+    <textarea placeholder="search for your friends" class="form-control " ng-model="search"></textarea>
     <input class="btn submit-btn pull-right" type="submit" value="Search!"/>
 </form>
 <div id="user-Stream">
     <h3>Peoples found</h3>
 
-    <div class="user" ng-repeat="user in users">
+    <div class="user" ng-repeat="user in userSearched">
+        <p>{{user.username}}</p>
 
 
     </div>
