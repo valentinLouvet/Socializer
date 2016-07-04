@@ -1,2 +1,2 @@
 #SOCIALIZER
-premier site web utilisant le stack MEAN
+##premier site web utilisant le stack MEAN
