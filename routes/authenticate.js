@@ -40,5 +40,21 @@ router.route('/users/:username')
        });
     });
 
+router.route('/search/:username')
+    .get(function (req, res) {
+       User.find(function (err, users){
+           if (err) {
+               return res.send(500, err);
+           }
+           var userSearched =[];
+           for( var i = 0; i<users.length; i++){
+               if(users[i].username.indexOf(req.params.username) != -1) {
+                   userSearched.push(users[i]);
+               }
+           }
+           return res.send(userSearched);
+       });
+    });
+
 module.exports = router;
 
